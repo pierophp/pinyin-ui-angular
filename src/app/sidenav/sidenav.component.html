@@ -1,7 +1,12 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-  <mat-drawer #drawer mode="over">I'm a drawer</mat-drawer>
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer
+    [opened]="opened$ | async"
+    (opened)="setOpened(true)"
+    (closed)="setOpened(false)"
+    mode="over"
+    >I'm a drawer</mat-drawer
+  >
   <mat-drawer-content>
     <ng-content></ng-content>
-    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
   </mat-drawer-content>
 </mat-drawer-container>
